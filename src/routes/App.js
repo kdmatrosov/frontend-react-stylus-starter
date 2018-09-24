@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import * as routes from './routesMapLoadable';
 import styles from './App.styl';
+
 
 class App extends Component {
   render() {
     return (
-      <div className={styles.App}>
-        <header className={styles["App-header"]}>
-          <h1 className={styles["App-title"]}>Welcome to React</h1>
-        </header>
-        <p className={styles["App-intro"]}>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <div className={styles.App}>
+          <Switch>
+            <Route path="/" exact component={routes.Index}/>
+            <Route path="/demo" component={routes.Demo}/>
+            <Route component={routes.NotFound}/>
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }
