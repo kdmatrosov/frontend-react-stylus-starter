@@ -18,9 +18,9 @@ class App extends Component {
       <BrowserRouter>
         <div className={styles.App}>
           <Switch>
-            <Route path="/" exact component={routes.Index}/>
-            <Route path="/demo" component={routes.Demo}/>
-            <Route component={routes.NotFound}/>
+            <Route path="/" exact component={routes.Index} />
+            <Route path="/demo" component={routes.Demo} />
+            <Route component={routes.NotFound} />
           </Switch>
         </div>
       </BrowserRouter>

@@ -12,8 +12,7 @@ const jwtDecode = t => {
   return token;
 };
 
-
-const JWT = (function () {
+const JWT = (function() {
   let JWT_TOKEN = '';
 
   function token(__token) {

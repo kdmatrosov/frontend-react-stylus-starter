@@ -52,7 +52,10 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "prettier-watch": "onchange 'src/**/*.js' -d 500 -- prettier --find-config-path --write {{changed}}",
+    "prettier": "prettier --find-config-path --write \"src/**/*.js\"",
+    "dev": "concurrently \"npm start\" \"npm run prettier-watch\""
   },
   "jest": {
     "collectCoverageFrom": [
@@ -100,7 +103,9 @@
     "autoprefixer": "^7.1.6",
     "css-mqpacker": "^7.0.0",
     "jest-stylus": "^0.1.2",
+    "onchange": "^4.1.0",
     "postcss-loader": "^2.0.8",
+    "prettier": "^1.14.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "webpack": "3.8.1"

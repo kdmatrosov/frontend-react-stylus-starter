@@ -1,5 +1,5 @@
 import Loadable from 'react-loadable';
-import RouteLoader from "../components/loaders/RouteLoader";
+import RouteLoader from '../components/loaders/RouteLoader';
 
 export const Demo = Loadable({
   loader: () => import('./demo'),
