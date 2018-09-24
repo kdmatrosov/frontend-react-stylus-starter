@@ -101,6 +101,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
+    "concurrently": "^4.0.1",
     "css-mqpacker": "^7.0.0",
     "jest-stylus": "^0.1.2",
     "onchange": "^4.1.0",
