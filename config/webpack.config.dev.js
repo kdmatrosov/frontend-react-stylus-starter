@@ -1,6 +1,7 @@
 'use strict';
 
 const autoprefixer = require('autoprefixer');
+const cssMQPacker = require('css-mqpacker');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -82,7 +83,7 @@ module.exports = {
     // https://github.com/facebookincubator/create-react-app/issues/290
     // `web` extension prefixes have been added for better support
     // for React Native Web.
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx', '.styl'],
     alias: {
       
       // Support React Native Web
@@ -151,6 +152,34 @@ module.exports = {
               cacheDirectory: true,
             },
           },
+          {
+            test: /\.styl$/,
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  localIdentName: '[name]__[local]--[hash:base64:5]',
+                  camelCase: true,
+                  sourceMap: true,
+                },
+              }, {
+                loader: 'postcss-loader',
+                options: {
+                  plugins: () => [
+                    autoprefixer({ browsers: ['>= 10%', 'last 2 versions'] }),
+                    cssMQPacker(),
+                  ],
+                  sourceMap: true,
+                },
+              }, {
+                loader: 'stylus-loader',
+                options: {
+                  sourceMap: true,
+                },
+              }],
+          },
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
           // "style" loader turns CSS into JS modules that inject <style> tags.
@@ -163,7 +192,10 @@ module.exports = {
               {
                 loader: require.resolve('css-loader'),
                 options: {
-                  importLoaders: 1,
+                  modules: true,
+                  localIdentName: '[name]__[local]--[hash:base64:5]',
+                  camelCase: true,
+                  sourceMap: true,
                 },
               },
               {
