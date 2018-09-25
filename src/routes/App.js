@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as routes from './routesMapLoadable';
 import styles from './App.styl';
 import * as userActions from '../store/actions/user';
-
 import { connect } from 'react-redux';
 
 class App extends Component {
