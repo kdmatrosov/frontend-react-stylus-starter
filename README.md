@@ -1,16 +1,33 @@
-# Starter over create-react-app
+# Starter over create-react-app v2
+
+## Table of Contents
+1. [Install](#install)
+1. [List of commands](#list-of-commands)
+1. [Work with styles](#work-with-styles)
+1. [Structure](#structure)
+1. [rest](#rest)
 
 ## Install
 ```bash
 npm i
 ```
+## List of commands
 
-## Start
+|`npm run <script>`|Описание|
+|------------------|-----------|
+|`start`| Запускает приложение на `localhost`, порт по умолчанию ```3000```|
+|`build`| Собирает ```production bundle``` в папке `build`|
+|`test`| Запускает тесты на ```jest```|
+|`prettier`| Прогоняет все js-файлы в папке ```src``` по правилам, описанным в `.prettierrc`|
+|`prettier-watch`| Включает вотчер за изменениями js-файлов в папке ```src```. После 500мс без изменения к файлу применяются `.prettierrc` правила|
+|`dev`| Одновременно запускает `start` и `prettier-watch`|
 
-```bash
-npm start
-npm run dev //with onchange
-```
+## Work with styles
+
+**Обязательно** к прочтению:
+* В webpack прописаны правила для `CSS`, `SASS`, `Stylus`
+* Отдельно есть правила для написания с `CSS Modules` и без
+* Если вы хотите, что стили *были модульными*, то имя файла должно соответствовать шаблону **name.module.(css|scss|sass|styl)**
 
 ## Structure
 * store - reducers/actions/sagas
