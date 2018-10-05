@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as routes from './routesMapLoadable';
-import styles from './App.styl';
+import styles from './App.module.styl';
 import * as userActions from '../store/actions/user';
 import { connect } from 'react-redux';
 
